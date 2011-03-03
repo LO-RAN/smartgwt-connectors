@@ -15,9 +15,16 @@ import com.smartgwt.client.widgets.events.ResizedHandler;
 /**
  * @author cwfr-lizac
  * 
+ * @version $Revision: 1.0 $
  */
 public class DrawingCanvas extends Canvas {
+	/**
+	 * Field drawingArea.
+	 */
 	DrawingArea drawingArea;
+	/**
+	 * Field canvas.
+	 */
 	Canvas canvas;
 
 	/**
@@ -49,10 +56,17 @@ public class DrawingCanvas extends Canvas {
 		});
 	}
 	
+	/**
+	 * Method add.
+	 * @param line Line
+	 */
 	public void add(Line line) {
 		drawingArea.add(line);
 	}
 
+	/**
+	 * Method resize.
+	 */
 	private void resize(){
 		drawingArea.setWidth(canvas.getInnerWidth());
 		drawingArea.setHeight(canvas.getInnerHeight());	

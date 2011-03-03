@@ -19,21 +19,49 @@ import com.smartgwt.client.widgets.events.DragRepositionStopHandler;
 import com.smartgwt.client.widgets.events.DragResizeMoveEvent;
 import com.smartgwt.client.widgets.events.DragResizeMoveHandler;
 
+/**
+ * @author cwfr-lizac
+ * @version $Revision: 1.0 $
+ */
 public class Connector {
 	// DrawingArea drawingArea;
+	/**
+	 * Field line.
+	 */
 	Line line;
+	/**
+	 * Field lineWidth.
+	 */
 	int lineWidth = 3;
+	/**
+	 * Field c2.
+	 */
+	/**
+	 * Field c1.
+	 */
 	Canvas c1, c2;
+	/**
+	 * Field dc.
+	 */
 	DrawingCanvas dc;
+	/**
+	 * Field strokeColor.
+	 */
 	String strokeColor;
 
+	/**
+	 * Constructor for Connector.
+	 * @param c1 Canvas
+	 * @param c2 Canvas
+	 * @param dc DrawingCanvas
+	 */
 	public Connector(Canvas c1, Canvas c2, final DrawingCanvas dc) {
 		this.c1 = c1;
 		this.c2 = c2;
 		this.dc = dc;
 
 		line = new Line(0, 0, 1, 1);
-		line.setStrokeColor("green");
+		line.setStrokeColor("#7F92FF");
 		line.setStrokeWidth(lineWidth);
 
 		line.addMouseOverHandler(new MouseOverHandler() {
@@ -41,7 +69,7 @@ public class Connector {
 			@Override
 			public void onMouseOver(MouseOverEvent event) {
 				strokeColor = line.getStrokeColor();
-				line.setStrokeColor("red");
+				line.setStrokeColor("#FF7B00");
 			}
 		});
 
@@ -72,6 +100,10 @@ public class Connector {
 		c2.bringToFront();
 	}
 
+	/**
+	 * Method addHandlers.
+	 * @param c Canvas
+	 */
 	private void addHandlers(Canvas c) {
 		c.addDragRepositionMoveHandler(new DragRepositionMoveHandler() {
 
@@ -93,7 +125,7 @@ public class Connector {
 			@Override
 			public void onDragRepositionStart(DragRepositionStartEvent event) {
 				strokeColor = line.getStrokeColor();
-				line.setStrokeColor("yellow");
+				line.setStrokeColor("#DAFF7F");
 			}
 		});
 
@@ -106,6 +138,10 @@ public class Connector {
 		});
 	}
 
+	/**
+	 * Method refresh.
+	 * @param animate Boolean
+	 */
 	private void refresh(Boolean animate) {
 		int c1x, c1y, c2x, c2y;
 

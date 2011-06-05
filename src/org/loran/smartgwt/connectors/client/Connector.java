@@ -91,7 +91,8 @@ public class Connector {
 
 		dc.add(line);
 
-		refresh(true);
+		refresh();
+		new Animate(line, "strokeopacity", 0, 1, 3000).start();
 
 		addHandlers(c1);
 		addHandlers(c2);
@@ -108,7 +109,7 @@ public class Connector {
 		c.addDragRepositionMoveHandler(new DragRepositionMoveHandler() {
 
 			public void onDragRepositionMove(DragRepositionMoveEvent event) {
-				refresh(false);
+				refresh();
 			}
 		});
 
@@ -116,7 +117,7 @@ public class Connector {
 
 			@Override
 			public void onDragResizeMove(DragResizeMoveEvent event) {
-				refresh(false);
+				refresh();
 			}
 		});
 
@@ -142,7 +143,7 @@ public class Connector {
 	 * Method refresh.
 	 * @param animate Boolean
 	 */
-	private void refresh(Boolean animate) {
+	private void refresh() {
 		int c1x, c1y, c2x, c2y;
 
 		c1x = c1.getLeft() + (c1.getWidth() / 2);
@@ -154,10 +155,6 @@ public class Connector {
 		line.setY1(c1y);
 		line.setX2(c2x);
 		line.setY2(c2y);
-		if (animate) {
-			new Animate(line, "strokeopacity", 0, 1, 3000).start();
-		}
-
 	}
 
 }

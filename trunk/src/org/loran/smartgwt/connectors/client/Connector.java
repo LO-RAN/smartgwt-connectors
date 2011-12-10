@@ -24,7 +24,6 @@ import com.smartgwt.client.widgets.events.DragResizeMoveHandler;
  * @version $Revision: 1.0 $
  */
 public class Connector {
-	// DrawingArea drawingArea;
 	/**
 	 * Field line.
 	 */
@@ -41,10 +40,6 @@ public class Connector {
 	 */
 	Canvas c1, c2;
 	/**
-	 * Field dc.
-	 */
-	DrawingCanvas dc;
-	/**
 	 * Field strokeColor.
 	 */
 	String strokeColor;
@@ -58,7 +53,6 @@ public class Connector {
 	public Connector(Canvas c1, Canvas c2, final DrawingCanvas dc) {
 		this.c1 = c1;
 		this.c2 = c2;
-		this.dc = dc;
 
 		line = new Line(0, 0, 1, 1);
 		line.setStrokeColor("#7F92FF");
